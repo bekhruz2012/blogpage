@@ -3,3 +3,11 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+sign_up:
+    path: /signup
+    controller: 'App\Controller\RegistrationController::showRegistrationPage'
+signup:
+    path: /sign_up
+    controller: App\Controller\RegistrationController::register
+
+

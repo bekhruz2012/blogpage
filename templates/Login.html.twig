@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Login and Signup</title>
+    <style>
+        /* styles.css */
+        /* CSS стили */
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            font-family: Arial, sans-serif;
+        }
+
+        .form-container {
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: none;
+            background-color: orange;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: orange;
+        }
+
+        /* Стили для кнопки-ссылки */
+        a {
+            display: inline-block;
+            padding: 10px 20px; /* Регулируемый отступ вокруг текста */
+            text-decoration: none;
+            background-color: orange; /* Цвет фона кнопки */
+            color: #fff; /* Цвет текста */
+            border-radius: 4px; /* Закругление углов */
+            transition: background-color 0.3s ease; /* Плавное изменение цвета при наведении */
+        }
+
+        /* При наведении */
+        a :hover {
+            background-color: orange; /* Изменяем цвет фона при наведении */
+        }
+    </style>
+</head>
+<body>
+    <div class="container_">
+        <div class="form-container">
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Имя пользователя:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Войти</button>
+                </div>
+            </form>
+            <div style="text-align: center;">
+                <p>или</p>
+
+                <div class="form-group">
+                    <a href="{{ path('sign_up') }}">Зарегистрироваться</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    // scripts.js
+    // JavaScript код
+    document.addEventListener('DOMContentLoaded', function() {
+        const loginForm = document.getElementById('loginForm');
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Предотвращаем отправку формы (пока не реализовано)
+            // Добавьте здесь код для отправки данных на сервер и обработки входа
+        });
+
+        const signupButton = document.getElementById('signupButton');
+        signupButton.addEventListener('click', function() {
+            // Добавьте здесь код для регистрации нового пользователя
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+        const loginForm = document.getElementById('loginForm');
+        // ...
+
+        const signupButton = document.getElementById('signupButton');
+        signupButton.addEventListener('click', function() {
+            // Здесь можно добавить код для регистрации нового пользователя
+            // Например, можно перенаправить пользователя на страницу регистрации
+            window.location.href = 'register.html'; // Пример перенаправления на страницу регистрации
+        });
+    });
+</script>
+</body>
+</html>
