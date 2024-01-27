@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Explore</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #333;
+        background-image: url('/blog_page/public/images/myblog logo.png');
+        background-size: 150% 150%;: wave 10 s ease-in-out infinite alternate;
+        background-color: black; /* Цвет фона с прозрачностью */
+
+    }
+    #button {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        border-radius: 10px;
+        transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+        color: black;
+        background-color: cornflowerblue;
+    }
+    .img--{
+        width: 1995px;
+        height: 10px;
+    }
+    #image {
+        width: 50px;
+    }
+    a {
+        text-decoration: none;
+        color: white;
+    }
+    .div {
+        width: 2000px;
+    }
+
+    #divimg {
+        width: 100px;
+        height: 100px;
+    }
+    input {
+        background-color: gray;
+        color: white;
+        border-radius: 10px;
+    }
+    #image1 {
+        width: 50px;
+    }
+    #input {
+        width: 300px;
+    }
+    #profile {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    #divimg {
+        width: 100px;
+        height: 100px;
+        opacity: 0; /* Начальная прозрачность */
+        transition: opacity 3s ease; /* Анимация изменения прозрачности в течение 3 секунд */
+    }
+
+    .toggle-btn{
+        display: none;
+    }
+
+    @media only screen and (max-width: 768px) {
+
+        .toggle-btn{
+            display: block;
+            float: right;
+            margin: 25px;
+            border: none;
+            padding: 7px 20px;
+            text-transform: uppercase;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        header nav{
+            display:none;
+        }
+        section{
+            padding: 0 15px;
+        }
+        section h3{
+            font-size: 25px;
+        }
+        section p{
+            font-size: 15px;
+        }
+
+    }
+</style>
+<body>
+
+<div>
+    <div class="div">
+        <h2>MY BLOG</h2>
+        <img id="divimg" src="/images/myblog logo.png">
+    </div>
+    <br>
+    <br>
+    <div class="img--">
+            <img id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ72VjZ_UzFGGxhk21fli70_amvq289a0ni4DQYynBhkR1_DHFRazVfU-HE5AHFCqM2LGI&usqp=CAU">
+            <a href="/home">Home</a>
+            <br>
+            <br>
+            <img id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPq_g8GxYJ20m_yIDaZRw6jq8NxMjZPY154w&usqp=CAU">
+            <a href="/">Log out</a>
+            <br>
+            <br>
+            <img id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT75SELy7I8F_vR2KQwSl9kI92TgoGW26UtSA&usqp=CAU">
+            <a href="/Search">Search</a>
+            <br>
+            <br>
+            <img id="profile" src="https://e7.pngegg.com/pngimages/782/114/png-clipart-profile-icon-circled-user-icon-icons-logos-emojis-users-thumbnail.png">
+            <a>Profile</a>
+            <br>
+            <br>
+            <img id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThQfu8CA3gFczdcAmsk2iCVL7RYCctfM4-0dlJsvyIMv5l9odxhGrn0gNCYjjo7_VKau8&usqp=CAU">
+            <a>Chat</a>
+            <br>
+            <br>
+            <a href="/addblog" id="button">Add blog</a>
+    </div>
+</div>
+<div id="input">
+    <h2>search blogs or profiles:</h2>
+    <input type="text">
+    <img id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT75SELy7I8F_vR2KQwSl9kI92TgoGW26UtSA&usqp=CAU">
+    <h2>profiles:</h2>
+</div>
+
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // После загрузки контента измените прозрачность изображения на 1
+        document.getElementById('divimg').style.opacity = 10;
+    });
+</script>
+</html>

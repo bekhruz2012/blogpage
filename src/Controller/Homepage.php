@@ -8,13 +8,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class Homepage extends AbstractController
 {
-    #[Route('/home ')]
+    #[Route('/home')]
     public function home(): Response
     {
-        return $this->render('Home.html.twig');
+        return $this->render('home.html.twig');
     }
 
-    #[Route('/ ')]
+    #[Route('/')]
     public function login(): Response
     {
         return $this->render('Login.html.twig');
@@ -26,9 +26,29 @@ class Homepage extends AbstractController
     {
         return $this->render('Signup.html.twig');
     }
-    #[Route('/explore')]
-    public function explore(): Response
+    #[Route('/Search')]
+    public function Search(): Response
     {
-        return $this->render('Explore.html.twig');
+        return $this->render('Search.html.twig');
+    }
+    #[Route('/addblog')]
+    public function addblog(): Response
+    {
+        return $this->render('Addblog.html.twig');
+    }
+    #[Route('/profile')]
+    public function profile(): Response
+    {
+        return $this->render('');
+    }
+    #[Route('/chat')]
+    public function chat(): Response
+    {
+        return $this->render('');
+    }
+    #[Route('/developer')]
+    public function developer(): Response
+    {
+        return $this->render('');
     }
 }

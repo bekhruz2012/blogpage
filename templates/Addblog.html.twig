@@ -15,9 +15,31 @@
             align-items: center;
             color: #333;
             background-image: url('/blog_page/public/images/myblog logo.png');
-            background-size: 150% 150%;: wave 10 s ease-in-out infinite alternate;
-            background-color: black; /* Цвет фона с прозрачностью */
+            background-size: 150% 150%;
+            background-color: black;
+        }
+        @media (max-width: 767px) {
+            .div {
+                order: 1; /* Переместить блок .div в начало документа */
+            }
 
+            .img-- {
+                order: 2; /* Переместить блок .img-- после .div */
+            }
+
+            .control-panel {
+                order: 3; /* Переместить блок .control-panel после .img-- */
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr); /* 2 столбца на мобильных устройствах */
+            }
+
+            #clearAll {
+                order: 4; /* Переместить кнопку #clearAll после .gallery */
+            }
+
+            /* ... (дополнительные стили для мобильных устройств) ... */
         }
         .control-panel {
             display: flex;
@@ -288,165 +310,184 @@
             border-radius: 5px;
             transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
         }
-         #clearAll {
-             display: inline-block;
-             padding: 10px 20px;
-             font-size: 16px;
-             font-weight: bold;
-             text-align: center;
-             text-decoration: none;
-             cursor: pointer;
-             border-radius: 5px;
-             transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-             color: #cc0000;
-             background-color: #ff4d4d;
-         }
-
-         .img--{
-             width: 1995px;
-             height: 10px;
-         }
-         #image {
-             width: 50px;
-         }
-         a {
-             text-decoration: none;
-             color: white;
-         }
-         #input {
-            background-color: gray;
-             color: white;
-             border-radius: 10px;
+        #clearAll {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+            color: #cc0000;
+            background-color: #ff4d4d;
         }
-         .div {
-             width: 2000px;
-         }
 
-         #divimg {
-             width: 100px;
-             height: 100px;
-         }
+        #image {
+            width: 50px;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        #input {
+            background-color: gray;
+            color: white;
+            border-radius: 10px;
+        }
+        .div {
+            width: 2000px;
+        }
+
+        #divimg {
+            width: 100px;
+            height: 100px;
+        }
+        #button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+            color: black;
+            background-color: cornflowerblue;
+        }
+
+        .zoomed-media {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            display: none;
+            background: rgba(0, 0, 0, 0.9); /* Черный полупрозрачный фон */
+        }
+
+        .zoomed-media.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .zoomed-media img,
+        .zoomed-media video,
+        .zoomed-media audio {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Белая тень вокруг контента */
+        }
+
+        #closeZoom {
+            display: block;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #closeZoom:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+        #divimg {
+            width: 100px;
+            height: 100px;
+            opacity: 0; /* Начальная прозрачность */
+            transition: opacity 3s ease; /* Анимация изменения прозрачности в течение 3 секунд */
+        }
+        .img-- {
+            width: 1995px;
+            height: 10px;
+            margin-top: 30px;
+        }
+
+        .control-panel {
+            display: flex;
+            gap: 20px;
+            padding: 10px;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 5 столбцов */
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        #profile {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body>
-    <div class="div">
-        <h2>MY BLOG</h2>
-        <img id="divimg" src="/images/myblog logo.png">
-    </div>
-
+<div class="div">
+    <h2>MY BLOG</h2>
+    <img id="divimg" src="/images/myblog logo.png">
+</div>
+<br>
+<div class="img--">
+    <img id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ72VjZ_UzFGGxhk21fli70_amvq289a0ni4DQYynBhkR1_DHFRazVfU-HE5AHFCqM2LGI&usqp=CAU">
+    <a href="/home">Home</a>
     <br>
     <br>
-    <div class="img--">
-        <img id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ72VjZ_UzFGGxhk21fli70_amvq289a0ni4DQYynBhkR1_DHFRazVfU-HE5AHFCqM2LGI&usqp=CAU">
-        <a href="/home">Home</a>
-        <br>
-        <br>
-        <img id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPq_g8GxYJ20m_yIDaZRw6jq8NxMjZPY154w&usqp=CAU">
-        <a href="/">Log out</a>
-        <br>
-        <br>
-        <img id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT75SELy7I8F_vR2KQwSl9kI92TgoGW26UtSA&usqp=CAU">
-        <a href="/explore">Explore</a>
-        <br>
-        <br>
-        <img id="image" src="https://e7.pngegg.com/pngimages/782/114/png-clipart-profile-icon-circled-user-icon-icons-logos-emojis-users-thumbnail.png">
-        <a>Profile</a>
-        <br>
-        <br>
-        <img id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThQfu8CA3gFczdcAmsk2iCVL7RYCctfM4-0dlJsvyIMv5l9odxhGrn0gNCYjjo7_VKau8&usqp=CAU">
-        <a>Chat</a>
-    </div>
-
+    <img id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPq_g8GxYJ20m_yIDaZRw6jq8NxMjZPY154w&usqp=CAU">
+    <a href="/">Log out</a>
     <br>
+    <br>
+    <img id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT75SELy7I8F_vR2KQwSl9kI92TgoGW26UtSA&usqp=CAU">
+    <a href="/Search">Search</a>
+    <br>
+    <br>
+    <img id="profile" src="https://e7.pngegg.com/pngimages/782/114/png-clipart-profile-icon-circled-user-icon-icons-logos-emojis-users-thumbnail.png">
+    <a>Profile</a>
+    <br>
+    <br>
+    <img id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThQfu8CA3gFczdcAmsk2iCVL7RYCctfM4-0dlJsvyIMv5l9odxhGrn0gNCYjjo7_VKau8&usqp=CAU">
+    <a>Chat</a>
+    <br>
+    <br>
+    <a href="/addblog" id="button">Add blog</a>
+</div>
 
-    <div class="control-panel">
-        <input type="file" id="fileInput" class="upload-input" accept="image/*" multiple>
-        <label for="fileInput" class="upload-label control-button">Add file</label>
-    </div>
+<br>
 
-    <div class="gallery" id="mediaGallery">
-        <p id="noMediaMessage">You don't have any photos, videos or music downloaded.</p>
-    </div>
+<div class="control-panel">
+    <input type="file" id="fileInput" class="upload-input" accept="image/*" multiple>
+    <label for="fileInput" class="upload-label control-button">Add file</label>
+</div>
 
+<div class="gallery" id="mediaGallery">
 
-    <div id="zoomModal" class="modal fade" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times</button>
-                </div>
-                <div class="modal-body">
-                    <img class="modal-content" id="zoomedImage" src="">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="side-panel">
-        <button class="settings-button">Settings</button>
-        <div id="settings" class="settings-content">
-            <label for="backgroundColorPicker">Background Color:</label>
-            <input type="color" id="backgroundColorPicker">
-            <label for="backgroundImagePicker">Background Image:</label>
-            <input type="file" id="backgroundImagePicker" accept="image/*">
-            <button id="removeBackgroundImage">Remove Background Image</button>
-        </div>
-    </div>
-
-    <button id="clearAll">Delete everything</button>
+</div>
+<p id="noMediaMessage">You don't have any photos, videos or music downloaded.</p>
+<button id="clearAll">Delete everything</button>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const languageSelectBtn = document.getElementById('languageSelect');
-        const languageDropdown = document.getElementById('languageDropdown');
-
-        function changeLanguage(language) {
-            // Ваш код для изменения языка
-            alert('Language changed to ' + language);
-            // Добавьте код для обновления интерфейса согласно выбранному языку
-        }
-
-        languageSelectBtn.addEventListener('click', function() {
-            languageDropdown.style.display = (languageDropdown.style.display === 'none' || languageDropdown.style.display === '') ? 'block' : 'none';
-        });
-
-        // Закрывать выпадающий список при клике вне него
-        window.addEventListener('click', function(event) {
-            if (!event.target.matches('#languageSelect')) {
-                languageDropdown.style.display = 'none';
-            }
-        });
-    });
-    document.addEventListener('DOMContentLoaded', function() {
-        const fileInput = document.getElementById('fileInput');
-        const mediaGallery = document.getElementById('mediaGallery');
-        const zoomModal = document.getElementById('zoomModal');
-        const zoomedImage = document.getElementById('zoomedImage');
-        const closeZoom = document.querySelector('.close');
-
-        fileInput.addEventListener('change', function() {
-            mediaGallery.addEventListener('click', function(event) {
-                if (event.target.tagName === 'IMG') {
-                    zoomedImage.src = event.target.src;
-                    zoomModal.style.display = 'block';
-                }
-            });
-            closeZoom.addEventListener('click', function() {
-                zoomModal.style.display = 'none';
-            });
-            window.addEventListener('click', function(event) {
-                if (event.target === zoomModal) {
-                    zoomModal.style.display = 'none';
-                }
-            });
-        });
-    });
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         const fileInput = document.getElementById('fileInput');
         const mediaGallery = document.getElementById('mediaGallery');
         const noMediaMessage = document.getElementById('noMediaMessage');
         const clearAllBtn = document.getElementById('clearAll');
 
-        fileInput.addEventListener('change', function() {
+        fileInput.addEventListener('change', function () {
             if (this.files.length === 0) {
                 noMediaMessage.style.display = 'block';
             } else {
@@ -475,7 +516,7 @@
                     const deleteButton = document.createElement('button');
                     deleteButton.classList.add('delete-button');
                     deleteButton.innerText = '❌';
-                    deleteButton.addEventListener('click', function() {
+                    deleteButton.addEventListener('click', function () {
                         if (confirm('Are you sure you want to delete the file?')) {
                             mediaItem.remove();
                             if (mediaGallery.children.length === 0) {
@@ -487,16 +528,43 @@
                     mediaItem.appendChild(deleteButton);
                     mediaGallery.appendChild(mediaItem);
 
-                    mediaItem.addEventListener('click', function() {
+                    mediaItem.addEventListener('click', function () {
                         if (!this.classList.contains('zoomed')) {
                             this.classList.add('zoomed');
+                            const zoomedMedia = document.createElement('div');
+                            zoomedMedia.classList.add('zoomed-media', 'active');
+
+                            if (fileType === 'image') {
+                                const imgElement = document.createElement('img');
+                                imgElement.src = URL.createObjectURL(file);
+                                zoomedMedia.appendChild(imgElement);
+                            } else if (fileType === 'video') {
+                                const videoElement = document.createElement('video');
+                                videoElement.src = URL.createObjectURL(file);
+                                videoElement.controls = true;
+                                zoomedMedia.appendChild(videoElement);
+                            } else if (fileType === 'audio') {
+                                const audioElement = document.createElement('audio');
+                                audioElement.src = URL.createObjectURL(file);
+                                audioElement.controls = true;
+                                zoomedMedia.appendChild(audioElement);
+                            }
+
                             const closeZoom = document.createElement('button');
+                            closeZoom.id = 'closeZoom';
                             closeZoom.innerText = 'Close Zoom';
-                            closeZoom.addEventListener('click', function() {
+                            closeZoom.addEventListener('click', function () {
                                 mediaItem.classList.remove('zoomed');
-                                closeZoom.remove();
+                                zoomedMedia.remove();
                             });
-                            this.appendChild(closeZoom);
+
+                            zoomedMedia.appendChild(closeZoom);
+                            document.body.appendChild(zoomedMedia);
+                        } else {
+                            this.classList.remove('zoomed');
+                            const zoomedMedia = document.querySelector('.zoomed-media');
+                            const closeZoom = zoomedMedia.querySelector('button');
+                            closeZoom.click();
                         }
                     });
                 }
@@ -504,49 +572,23 @@
             }
         });
 
-        clearAllBtn.addEventListener('click', function() {
+        clearAllBtn.addEventListener('click', function () {
             const galleryItems = document.querySelectorAll('.media-item');
             if (galleryItems.length > 0) {
-                if (confirm('Вы точно хотите удалить все файлы?')) {
+                if (confirm('Are you sure you want to delete all files?')) {
                     galleryItems.forEach(item => item.remove());
                     noMediaMessage.style.display = 'block';
                 }
             } else {
-                alert('У вас нет загруженных файлов для удаления.');
+                alert('You have no uploaded files to delete.');
             }
         });
     });
-    document.addEventListener('DOMContentLoaded', function() {
-        const settingsButton = document.querySelector('.settings-button');
-        const settingsContent = document.querySelector('.settings-content');
-        const backgroundColorPicker = document.getElementById('backgroundColorPicker');
-        const backgroundImagePicker = document.getElementById('backgroundImagePicker');
-        const removeBackgroundImageBtn = document.getElementById('removeBackgroundImage');
-        const body = document.body;
-
-        settingsButton.addEventListener('click', function() {
-            settingsContent.classList.toggle('active');
-        });
-
-        backgroundColorPicker.addEventListener('change', function() {
-            body.style.backgroundColor = this.value;
-        });
-
-        backgroundImagePicker.addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            const reader = new FileReader();
-
-            reader.onload = function() {
-                body.style.backgroundImage = `url(${reader.result})`;
-            };
-
-            reader.readAsDataURL(file);
-        });
-
-        removeBackgroundImageBtn.addEventListener('click', function() {
-            body.style.backgroundImage = 'none';
-        });
+    document.addEventListener("DOMContentLoaded", function () {
+        // После загрузки контента измените прозрачность изображения на 1
+        document.getElementById('divimg').style.opacity = 1;
     });
 </script>
+
 </body>
 </html>

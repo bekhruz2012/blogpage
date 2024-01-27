@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>MY BLOG</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #333;
+            background-image: url('/blog_page/public/images/myblog logo.png');
+            background-size: 150% 150%;
+            background-color: black;
+        }
+        #button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+            color: black;
+            background-color: cornflowerblue;
+        }
+        .img--{
+            width: 1995px;
+            height: 10px;
+        }
+        #image {
+            width: 50px;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        .div {
+            width: 2000px;
+        }
+
+        #divimg {
+            width: 100px;
+            height: 100px;
+            opacity: 0; /* Начальная прозрачность */
+            transition: opacity 3s ease; /* Анимация изменения прозрачности в течение 3 секунд */
+        }
+
+        input {
+            background-color: gray;
+            color: white;
+            border-radius: 10px;
+        }
+        #profile {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        @media only screen and (max-width: 450px) {
+            #image {
+                         width: 30px;
+                     }
+        #divimg {
+            width: 80px;
+            height: 80px;
+        }
+        .img-- {
+            align-items: center;
+            text-align: center;
+            width: 100%;
+        }
+        }
+
+        @media only screen and (max-width: 600px) {
+            #image {
+                width: 30px;
+            }
+            #divimg {
+                width: 80px;
+                height: 80px;
+            }
+            .img-- {
+                align-items: center;
+                text-align: center;
+                width: 100%;
+            }
+        }
+
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="div">
+    <h2>MY BLOG</h2>
+    <img id="divimg" src="/images/myblog logo.png">
+</div>
+<br>
+<br>
+    <div class="img--">
+        <img id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ72VjZ_UzFGGxhk21fli70_amvq289a0ni4DQYynBhkR1_DHFRazVfU-HE5AHFCqM2LGI&usqp=CAU">
+        <a href="/home">Home</a>
+        <br>
+        <br>
+        <img id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPq_g8GxYJ20m_yIDaZRw6jq8NxMjZPY154w&usqp=CAU">
+        <a href="/">Log out</a>
+        <br>
+        <br>
+        <img id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT75SELy7I8F_vR2KQwSl9kI92TgoGW26UtSA&usqp=CAU">
+        <a href="/Search">Search</a>
+        <br>
+        <br>
+        <img id="profile" src="https://e7.pngegg.com/pngimages/782/114/png-clipart-profile-icon-circled-user-icon-icons-logos-emojis-users-thumbnail.png">
+        <a href="/profile" >Profile</a>
+        <br>
+        <br>
+        <img id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThQfu8CA3gFczdcAmsk2iCVL7RYCctfM4-0dlJsvyIMv5l9odxhGrn0gNCYjjo7_VKau8&usqp=CAU">
+        <a href="/chat" >Chat</a>
+        <br>
+        <br>
+        <a href="/addblog" id="button">Add blog</a>
+    </div>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById('divimg').style.opacity = 1;
+    });
+</script>
+</html>
